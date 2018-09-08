@@ -6,12 +6,12 @@ module.exports = {
   entry: {
     javascript: './js/index'
   },
-
+  
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, '/dist'),
   },
-
+  
   resolve: {
     alias: {
       react: path.join(__dirname, 'node_modules', 'react')
@@ -24,7 +24,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader'],
+        loaders: 'babel-loader',
       },
       {
         test: /\.html$/,
