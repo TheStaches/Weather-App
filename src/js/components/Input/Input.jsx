@@ -1,11 +1,26 @@
 import React from 'react';
 
+import {
+  updateCityName
+} from './inputActions'
+
 export default class Input extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleCityInput = this.handleCityInput.bind(this);
+  }
+
+  handleCityInput(event) {
+    const { dispatch } = this.props;
+    const { value } = event.target;
+    console.log(this.props)
+    dispatch(updateCityName(value));
   }
 
   render() {
+    const { cityName } = this.props;
+
     return(
       <div className='inputGroup'>
 
@@ -28,7 +43,12 @@ export default class Input extends React.Component {
         </div>
 
         <div className='input-group'>
-          <input type='text' className='form-control' />
+          <input 
+            type='text' 
+            className='form-control' 
+            value={ cityName }
+            onChange={ this.handleCityInput }
+            />
           <div className='input-group-append'>
             <button className='btn btn-outline-dark'>Go!</button>
           </div>

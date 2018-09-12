@@ -1,7 +1,7 @@
 import React from 'react';
-import History from './components/History/History';
-import Information from './components/Information/Information'; 
-import Input from './components/Input/Input';
+import History from './components/History/';
+import Information from './components/Information/'; 
+import Input from './components/Input/';
 
 export default class App extends React.Component {
   render() {
