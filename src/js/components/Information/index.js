@@ -3,7 +3,7 @@ import Information from './Information';
 
 function mapStoreToProps(store) {
   return {
-    name: store.input.name,
+    cityName: store.input.cityName,
     lat: store.input.lat,
     lon: store.input.lon,
     temp: store.input.temp,
@@ -11,7 +11,7 @@ function mapStoreToProps(store) {
     humidity: store.input.humidity,
     temp_min: store.input.temp_min,
     temp_max: store.input.temp_max,
-    windspd: store.input.speed,
+    windspd: store.input.windspd,
   };
 }
 

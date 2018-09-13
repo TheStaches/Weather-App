@@ -1,13 +1,14 @@
 const defaultState = {
   cityInput: '',
-  name: '',
-  let: 0,
+  cityName: '',
+  lat: 0,
   lon: 0,
   temp: 0,
   pressure: 0,
   humidity: 0,
   temp_min: 0,
   temp_max: 0,
+  windspd: 0,
   cities: []
 }
 
@@ -25,7 +26,7 @@ export default function inputReducer (state = defaultState, action) {
     case 'SEARCH_CITY_FULFILLED': {
       return {
         ...state,
-        name: payload.data.name,
+        cityName: payload.data.name,
         lat: payload.data.coord.lat,
         lon: payload.data.coord.lon,
         temp: payload.data.main.temp,
