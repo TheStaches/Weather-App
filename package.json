@@ -28,7 +28,6 @@
     "lodash-webpack-plugin": "^0.10.2",
     "morgan": "^1.8.1",
     "nightmare": "^3.0.1",
-    "nodemon": "^1.18.4",
     "prop-types": "^15.5.10",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
