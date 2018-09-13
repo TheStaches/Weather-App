@@ -3,7 +3,7 @@ import Input from './Input';
 
 function mapStoreToProps(store) {
   return {
-    cityName: store.input.cityName
+    cityInput: store.input.cityInput
   };
 }
 

@@ -1,7 +1,8 @@
 import React from 'react';
 
 import {
-  updateCityName
+  updateCityName,
+  searchCity
 } from './inputActions'
 
 export default class Input extends React.Component {
@@ -9,17 +10,23 @@ export default class Input extends React.Component {
     super(props);
 
     this.handleCityInput = this.handleCityInput.bind(this);
+    this.handleSearchCity = this.handleSearchCity.bind(this);
   }
 
   handleCityInput(event) {
     const { dispatch } = this.props;
     const { value } = event.target;
-    console.log(this.props)
     dispatch(updateCityName(value));
   }
 
+  handleSearchCity() {
+    const { dispatch } = this.props;
+    const { cityInput } =this.props;
+    dispatch(searchCity(cityInput))
+  }
+
   render() {
-    const { cityName } = this.props;
+    const { cityInput } = this.props;
 
     return(
       <div className='inputGroup'>
@@ -46,14 +53,16 @@ export default class Input extends React.Component {
           <input 
             type='text' 
             className='form-control' 
-            value={ cityName }
+            value={ cityInput }
             onChange={ this.handleCityInput }
             />
           <div className='input-group-append'>
-            <button className='btn btn-outline-dark'>Go!</button>
+            <button 
+              className='btn btn-outline-dark'
+              onClick={ this.handleSearchCity }
+              >Go!</button>
           </div>
         </div>
-
       </div>
     );
   }
