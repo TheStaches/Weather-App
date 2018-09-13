@@ -12,6 +12,7 @@ function mapStoreToProps(store) {
     temp_min: store.input.temp_min,
     temp_max: store.input.temp_max,
     windspd: store.input.windspd,
+    icon: store.input.icon,
   };
 }
 

@@ -1,8 +1,19 @@
 .btn-group .btn {
   background-color: #87a3d1;
 }
+
 .inputGroup {
   margin-bottom: 40px;
+  button:hover {
+    cursor: pointer;
+  }
+  .btn-group .btn:hover  {
+    background-color: #6489c9;
+    cursor: pointer;
+  }
+}
+.card {
+  margin-bottom: 100px;
 }
 
 .information {
@@ -13,14 +24,26 @@
   .cityName {
     text-align: center;
   }
+  .cityTitle {
+    min-height: 50px;
+  }
   .cityData {
     text-align: center;
+    p {
+      min-height: 30px;
+    }
   }
   .cityData p {
-    color: forestgreen;
+    color:  forestgreen;
   }
 }
+
 .history {
+  .card-body {
+    padding: 0px;
+    max-height: 437px;
+    overflow: auto;
+  }
   .card-header {
     background-color: #d7e0ef;
     color: #6488c1;

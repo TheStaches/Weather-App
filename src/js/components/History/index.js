@@ -3,6 +3,7 @@ import History from './History';
 
 function mapStoreToProps(store) {
   return {
+    cities: store.input.cities
   };
 }
 
