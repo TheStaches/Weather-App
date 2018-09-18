@@ -11,9 +11,9 @@ const defaultState = {
   windspd: null,
   icon: '',
   cities: []
-}
+};
 
-export default function inputReducer (state = defaultState, action) {
+export default function inputReducer(state = defaultState, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -41,11 +41,10 @@ export default function inputReducer (state = defaultState, action) {
         cities: [{
           cityName: payload.data.name,
           date: new Date().toUTCString()
-        }, 
-        ...state.cities]
+        },
+          ...state.cities]
       };
     }
-    
 
     case 'SEARCH_CITY_REJECTED': {
       return state;

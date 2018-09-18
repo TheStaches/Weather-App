@@ -9,8 +9,8 @@ function mapStoreToProps(store) {
     temp: store.input.temp,
     pressure: store.input.pressure,
     humidity: store.input.humidity,
-    temp_min: store.input.temp_min,
-    temp_max: store.input.temp_max,
+    tempMin: store.input.temp_min,
+    tempMax: store.input.temp_max,
     windspd: store.input.windspd,
     icon: store.input.icon,
   };
