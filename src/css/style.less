@@ -1,57 +1,115 @@
-.btn-group .btn {
-  background-color: #87a3d1;
+// Background: #577A85
+// DarkerGreen: #678690
+// Purple: #A197FF
+// LightGrey: #CFD4D8
+// DarkGrey: #999EA0
+// White: #FEFEFE
+
+// Background #304860
+// White: #FEFEFE
+// Yellow #F9DB62
+// Grey 1 #A2ACB6
+// Blue Grey #53636b
+// Grey 3 #677889
+// Olive #AFA461
+// Grey 2 #77858B
+
+
+
+
+body {
+  background-color: #304860;
+  -webkit-font-smoothing: antialiased;
+  
+}
+.border {
+  border: 2px solid red !important;
 }
 
-.inputGroup {
-  margin-bottom: 40px;
-  button:hover {
-    cursor: pointer;
-  }
-  .btn-group .btn:hover  {
-    background-color: #6489c9;
-    cursor: pointer;
-  }
-}
-.card {
-  margin-bottom: 100px;
-}
+.header {
+  font-family: oxygen;
+  display: flex;
+  flex-direction: column;
+  color: #FEFEFE;
+  justify-content: center;
+  height: 100vh;
 
-.information {
-  .card-header {
-    background-color: #d7e0ef;
-    color: #6488c1;
+  .title {
+    align-self: center;
+    margin-bottom: 50px;
+    font-size: 75px;
   }
-  .cityName {
+  .input {
+    width: 70%;
+    align-self: center;
     text-align: center;
+    height: 12%;
+    border-radius: 7px;
+    font-size: 22px;
+    font-weight: 300;
+    color: #50636C;
+    background-color: #CFD4D8;
+    box-shadow: 0px 7px 1px -1px #213344;
   }
-  .cityTitle {
-    min-height: 50px;
+  .borderTrans {
+    border: none;
   }
-  .cityData {
-    text-align: center;
-    p {
-      min-height: 30px;
-    }
+  .borderRed {
+    border: 2px solid red;
   }
-  .cityData p {
-    color:  forestgreen;
+  .chevron {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    margin: auto;
   }
 }
+  
+.input:focus {
+  outline: none;
+}
+.input:focus::-webkit-input-placeholder { 
+  color: transparent; 
+}
 
-.history {
-  .card-body {
-    padding: 0px;
-    max-height: 437px;
-    overflow: auto;
+.row {
+  margin-bottom: 50px;
+}
+.hidden {
+  display: none;
+}
+.infoCard {
+  width: 100%;
+  background-color: #CFD4D8;
+  font-family: Lato;
+
+  .infoDate {
+    padding: 40px;
   }
-  .card-header {
-    background-color: #d7e0ef;
-    color: #6488c1;
+
+  .image {
+    position: absolute;
+    max-width: 100%;
+    margin: auto;
+    height: 100%;
+    object-fit: cover;
+    right: 0;
   }
-  td:last-child {
-    text-align: right;
+
+  .displayTemp {
+    font-size: 70px;
+    display: flex;
+    padding: 0 0 40px 30px;
   }
-  tr:nth-child(odd) {
-    background-color: #F0F3F7;
+
+  .fiveDayForecast {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 50px;
+  }
+
+  .col-4 {
+    // padding: 0px;
   }
 }

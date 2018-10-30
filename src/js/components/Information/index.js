@@ -6,13 +6,9 @@ function mapStoreToProps(store) {
     cityName: store.input.cityName,
     lat: store.input.lat,
     lon: store.input.lon,
-    temp: store.input.temp,
-    pressure: store.input.pressure,
-    humidity: store.input.humidity,
-    tempMin: store.input.temp_min,
-    tempMax: store.input.temp_max,
-    windspd: store.input.windspd,
-    icon: store.input.icon,
+    forecast: store.input.forecast,
+    searched: store.input.searched,
+    hidden: store.input.hidden,
   };
 }
 

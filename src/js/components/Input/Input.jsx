@@ -1,9 +1,10 @@
 import React from 'react';
+import SVG from '../../../../public/svg';
 
 import {
   updateCityName,
   searchCity
-} from './inputActions'
+} from './inputActions';
 
 export default class Input extends React.Component {
   constructor(props) {
@@ -11,7 +12,6 @@ export default class Input extends React.Component {
 
     this.handleCityInput = this.handleCityInput.bind(this);
     this.handleSearchCity = this.handleSearchCity.bind(this);
-    this.handleButtonSearch = this.handleButtonSearch.bind(this);
   }
 
   handleCityInput(event) {
@@ -28,78 +28,23 @@ export default class Input extends React.Component {
     }
   }
 
-  handleButtonSearch(event) {
-    const { dispatch } = this.props;
-    const { value } = event.target;
-    dispatch(searchCity(value));
-  }
-
   render() {
-    const { cityInput } = this.props;
+    const { cityInput, searched, borderColor } = this.props;
 
     return (
-      <div className='inputGroup'>
+      <div className='header'>
+        <h1 className='title'>How's the Weather?</h1>
+        <input
+          className={ `input ${borderColor}` }
+          placeholder='Enter your city or town...'
+          onKeyDown={ this.handleSearchCity }
+          value={ cityInput }
+          onChange={ this.handleCityInput }
+        />
 
-        <div className='btn-group btn-group-toggle' data-toggle='buttons'>
-          <label className='btn btn-secondary '>
-            <input
-              type='radio'
-              name='options'
-              id='option1'
-              value='San Diego' onClick={ this.handleButtonSearch }
-            />San Diego
-          </label>
-          <label className='btn btn-secondary'>
-            <input
-              type='radio'
-              name='options'
-              id='option1'
-              value='New York' onClick={ this.handleButtonSearch }
-            />New York
-          </label>
-          <label className='btn btn-secondary'>
-            <input
-              type='radio'
-              name='options'
-              id='option1'
-              value='Washington DC.' onClick={ this.handleButtonSearch }
-            />Washington D.C
-          </label>
-          <label className='btn btn-secondary'>
-            <input
-              type='radio'
-              name='options'
-              id='option1'
-              value='London' onClick={ this.handleButtonSearch }
-            />London
-          </label>
-          <label className='btn btn-secondary'>
-            <input
-              type='radio'
-              name='options'
-              id='option1'
-              value='Tokyo' onClick={ this.handleButtonSearch }
-            />Tokyo
-          </label>
-        </div>
-
-        <div className='input-group'>
-          <input
-            type='text'
-            className='form-control'
-            onKeyDown={ this.handleSearchCity }
-            value={ cityInput }
-            onChange={ this.handleCityInput }
-          />
-          <div className='input-group-append'>
-            <button
-              className='btn btn-outline-dark'
-              value='button'
-              onKeyDown={ this.handleSearchCity }
-              onClick={ this.handleSearchCity }
-            >Go!</button>
-          </div>
-        </div>
+        {
+          searched ? SVG.chevron : <span />
+        }
       </div>
     );
   }

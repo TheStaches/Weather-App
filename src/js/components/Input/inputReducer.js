@@ -3,14 +3,11 @@ const defaultState = {
   cityName: '',
   lat: null,
   lon: null,
-  temp: null,
-  pressure: null,
-  humidity: null,
-  temp_min: null,
-  temp_max: null,
-  windspd: null,
-  icon: '',
-  cities: []
+  forecastList: [],
+  searched: false,
+  searchError: false,
+  borderColor: 'borderTrans',
+  hidden: 'hidden'
 };
 
 export default function inputReducer(state = defaultState, action) {
@@ -20,7 +17,8 @@ export default function inputReducer(state = defaultState, action) {
     case 'UPDATE_INPUT': {
       return {
         ...state,
-        cityInput: payload.cityName
+        cityInput: payload.cityName,
+        searched: false,
       };
     }
 
@@ -28,26 +26,29 @@ export default function inputReducer(state = defaultState, action) {
       return {
         ...state,
         cityInput: '',
-        cityName: payload.data.name,
-        lat: payload.data.coord.lat + ',',
-        lon: payload.data.coord.lon,
-        temp: payload.data.main.temp.toFixed(1) + 'F',
-        pressure: payload.data.main.pressure,
-        humidity: payload.data.main.humidity + '%',
-        temp_min: payload.data.main.temp_min.toFixed(1) + 'F',
-        temp_max: payload.data.main.temp_max.toFixed(1) + 'F',
-        windspd: payload.data.wind.speed.toFixed(1) + 'MPH',
-        icon: payload.data.weather[0].icon,
-        cities: [{
-          cityName: payload.data.name,
-          date: new Date().toUTCString()
-        },
-          ...state.cities]
+        cityName: payload.data.city.name,
+        lat: `${payload.data.city.coord.lat},`,
+        lon: payload.data.city.coord.lon,
+        forecast: [
+          payload.data.list[0],
+          payload.data.list[8],
+          payload.data.list[16],
+          payload.data.list[24],
+          payload.data.list[32],
+          payload.data.list[payload.data.list.length - 1],
+        ],
+        searched: true,
+        borderColor: 'borderTrans',
+        hidden: ''
       };
     }
 
     case 'SEARCH_CITY_REJECTED': {
-      return state;
+      return {
+        ...state,
+        searchError: true,
+        borderColor: 'borderRed',
+      };
     }
 
     default: {
