@@ -1,4 +1,4 @@
-# Movie Search 
+# Weather App
 
 Utilizes the openweathermap API to display weather information for searched cities.
 
